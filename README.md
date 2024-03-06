@@ -19,7 +19,7 @@ Create a browser-based text editor as a single-page application, fulfilling PWA 
 
 ## Installation
 
-1. npm i
+1. npm install 
 2. npm run build
 3. npm run start:dev
 4. npm run start
