@@ -33,15 +33,15 @@ export const postDb = async (content) => {
 };
 
 // TODO: Add logic for a method that gets all the content from the database
-export const getAllDb = async () => {
-  console.log('GET all from the database');
+export const getDb = async () => {
+  console.log('GET from the database');
 
   const jateDb = await openDB('jate', 1);
 // create transaction to jate collection with a read only data priviledege
-  const tx = jateDb.transaction('jate', 'readOnly');
+  const tx = jateDb.transaction('jate', 'readonly');
   const store = tx.objectStore('jate');
   // use .getAll() method to retrieve all data in the database
-  const request = store.getALL();
+  const request = store.getAll();
 // confirmation of the request
   const result = await request;
   console.log('result.value', result);

@@ -20,19 +20,21 @@ module.exports = () => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        title: 'Webpack Plugin',
+        title: 'J.A.T.E',
       }),
       // workbox plugins for service worker
       new InjectManifest({
-        swSrc: './src-sw.js',
-        swDest: 'service-worker.js'
+        swSrc: './src-sw.js', // service worker for injectmanifest providing caching
+        swDest: 'src-sw.js' // location after it is bundled
       }),
 
       // Creates a manifest.json file.
       new WebpackPwaManifest({
-        name: 'My Text-Editor Web App',
-        short_name: 'MyTE',
-        description: 'My awesome Progressive Web App!',
+        fingerprints: false,
+        inject: true,
+        name: 'Just Another Text Editor',
+        short_name: 'JATE',
+        description: 'Just another text editor',
         background_color: '#ffffff',
         crossorigin: 'use-credentials', 
         start_url: './',
@@ -53,7 +55,7 @@ module.exports = () => {
         // add css loaders and babel to webpack
         {
           test: /\.css$/i,
-          use: ["style-loader", "css-loader"],
+          use: ['style-loader', 'css-loader'],
         },
         {
           test: /\.(png|svg|jpg|jpeg|gif)$/i,
