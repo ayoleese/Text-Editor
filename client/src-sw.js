@@ -30,9 +30,9 @@ registerRoute(
 );
 
 // Implement asset caching using StaleWhileRevalidate strategy
-registerRoute(
+registerRoute( //Register route for CSS and JS file
   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
-  new StaleWhileRevalidate({
+  new StaleWhileRevalidate({ // serves content from cache
     cacheName: 'asset-cache',
     plugins: [
       new CacheableResponsePlugin({
